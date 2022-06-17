@@ -177,3 +177,10 @@ canvas {
     width: 240px;
     height: 240px;
 }
+
+@media (min-width: 992px) {
+    canvas {
+        width: 540px;
+        height: 540px;
+    }
+} 

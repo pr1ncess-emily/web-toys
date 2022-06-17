@@ -2,7 +2,7 @@ export default class Renderer {
     constructor(canvasElement, canvasSize) {
         this.canvas = canvasElement.getContext('2d');
         this.size = canvasSize;
-        this.renderRatio = Math.round(canvasSize/360);
+        this.renderRatio = canvasSize/360;
     }
 
     clear() {

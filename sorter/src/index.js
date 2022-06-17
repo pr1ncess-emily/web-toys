@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let canvasElement = document.getElementById('appCanvas');
     const screenWidth = window.innerWidth;
 
-    const AppRenderer = new Renderer(canvasElement, 720);
+    const AppRenderer = new Renderer(canvasElement, 360);
 
     AppSorter.shuffle(1000);
     AppRenderer.render(AppSorter.sortArray);
