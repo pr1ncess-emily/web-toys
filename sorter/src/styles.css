@@ -1,0 +1,36 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+    place-items: center;
+}
+
+.controls {
+    width: 80%;
+    height: 80%;
+
+    display: grid;
+    grid-template-rows: repeat(3, calc(100%/3));
+    grid-template-columns: 100%;
+}
+
+.control__field--rate,
+.control__field--algo,
+.control__field--buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control__field--rate,
+.control__field--algo {
+    flex-direction: column;
+}
+
+.control__field--rate *,
+.control__field--algo * {
+    margin: 1rem 0;
+    box-sizing: border-box;
+} 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort</title>
+
+    <!-- js -->
+    <script src="./Renderer.js" type="module"></script>
+    <script src="./Sorter.js" type="module"></script>
+    <script src="./index.js" type="module"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas height="720" width="720" id="appCanvas"></canvas>
+
+    <div class="controls">
+        <div class="control__field--rate">
+            <span class="control__item rate-display">0</span>
+            <input type="range" name="rate" min="10" max="1000">
+            <label for="rate">Execution rate</label>
+        </div>
+        <div class="control__field--algo">
+            <label for="algo">Algorithm</label>
+            <select name="algo">
+                <option value="insert">Insertion</option>
+            </select>
+        </div>
+        <div class="control__field--buttons">
+            <button class="start">Start</button>
+            <button class="stop">Stop</button>
+            <button class="shuffle">Shuffle</button>
+        </div>
+    </div>
+</body>
+</html>
