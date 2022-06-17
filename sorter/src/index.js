@@ -60,8 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Button Handlers
     startButton.addEventListener('click', () => {
         if (AppSorter.sorted) {
+            AppSorter = new Sorter(currentAlgo);
             AppSorter.shuffle(1000);
-        }
+        }  
         if (isRunning != true) {
             isRunning = true;
             doSortLoop();

@@ -53,5 +53,6 @@ export default class Sorter {
                 this.sortArray[indexB] = valueA;
             }
         }
+        this.sorted = false;
     }
 }
