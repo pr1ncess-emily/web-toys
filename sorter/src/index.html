@@ -33,7 +33,7 @@
         <canvas id="appCanvas"></canvas>
     </main>
 
-    <section class="settings__button">
+    <section class="control__buttons">
         <span class="lg-icon" onclick="document.querySelector('.controls__modal').style.display = 'grid'">&#9881;&#65039;</span>
         <span> | </span>
         <span class="lg-icon playButton">&#9654;&#65039;</span>
@@ -60,18 +60,18 @@
         <div onclick="document.querySelector('.controls__modal').style.display = 'none'" class="controls-modal__bg"></div>
     </section>
 
-    <!-- <section class="controls__fullscreen">
-            <div class="control__field--rate">
-                <input name="controlRate" type="number" min="10" max="1000" inputmode="numeric" pattern="[0-9]*">
-                <span>ms</span>
-                <label for="controlRate">Execution rate</label>
-            </div>
-            <div class="control__field--algo">
-                <select name="controlAlgo">
-                    <option value="insert">Insertion</option>
-                </select>
-                <label for="controlAlgo">Sort Type</label>
-            </div>
-    </section> -->
+    <section class="controls__fullscreen">
+        <div class="control__field--rate">
+            <span class="controlRateDisplay">0</span>
+            <input type="range" name="controlRate" min="10" max="1000">
+            <label for="controlRate">Execution rate</label>
+        </div>
+        <div class="control__field--algo">
+            <select name="controlAlgo">
+                <option value="insert">Insertion</option>
+            </select>
+            <label for="controlAlgo">Sort Type</label>
+        </div>
+    </section>
 </body>
 </html>

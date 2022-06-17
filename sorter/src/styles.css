@@ -16,11 +16,21 @@ body {
 
 .lg-icon {
     font-size: var(--font-size-lg);
+    cursor: pointer;
+}
+
+@media (min-width: 992px) {
+    body {
+        grid-template-rows: 10% 1fr 2fr;
+        grid-template-columns: 50% 50%;
+    }
 }
 
 /* Header */
 header {
     width: 100%;
+    grid-column: 1/-1;
+
     display: grid;
     grid-template-rows: 100%;
     grid-template-columns: 3fr 1fr;
@@ -40,7 +50,8 @@ header {
 
 /* Settings */
 
-.settings__button {
+/* Mobile */
+.control__buttons {
     margin: auto;
     width: 80%;
     height: 100%;
@@ -91,6 +102,7 @@ header {
 .control__field--rate,
 .control__field--algo {
     height: 80%;
+    width: 100%;
     grid-column: 1/3;
 }
 
@@ -117,12 +129,47 @@ header {
     place-items: center;
 }
 
+.controls__fullscreen {
+    display: none;
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+    .control__buttons {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .control__buttons span:nth-child(1),
+    .control__buttons span:nth-child(2) {
+        display: none;
+    }
+
+    .controls__fullscreen {
+        display: grid;
+    }
+
+    .control__field--rate {
+        grid-template-columns: 100%;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
+    .control__field--rate label {
+        grid-column: 1/1;
+    }
+}
+
 /* Main */
 main {
     width: 100%;
     height: 100%;
     display: grid;
     place-items: center;
+}
+
+@media (min-width: 992px) {
+    main {
+        grid-row: 2/4;
+    }
 }
 
 /* Canvas Sizing */
