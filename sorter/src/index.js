@@ -5,6 +5,8 @@ let AppSorter = new Sorter();
 
 document.addEventListener('DOMContentLoaded', () => {
     let canvasElement = document.getElementById('appCanvas');
+    const screenWidth = window.innerWidth;
+
     const AppRenderer = new Renderer(canvasElement, 720);
 
     AppSorter.shuffle(1000);
@@ -12,29 +14,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let isRunning = false;
 
-    const rateInput = document.querySelector('input[name="rate"]');
-    const rateDisplay = document.querySelector('span.rate-display');
+    const rateDisplay = document.querySelector('span.controlRateDisplay');
+    const startButton = document.querySelector('span.playButton');
+    const stopButton = document.querySelector('span.pauseButton');
+    const shuffleButton = document.querySelector('span.shuffleButton');
+    let rateInput, algoSelect;
+    if (screenWidth < 992) {
+        rateInput = document.querySelector('input[name="controlRateM"]');
+        algoSelect = document.querySelector('select[name="controlAlgoM"]');
+    } else {
+        rateInput = document.querySelector('input[name="controlRate"]');
+        algoSelect = document.querySelector('select[name="controlAlgo"]');
+    }
 
-    const algoSelect = document.querySelector('select[name="algo"]');
-    
-    const startButton = document.querySelector('button.start');
-    const stopButton = document.querySelector('button.stop');
-    const shuffleButton = document.querySelector('button.shuffle');
-
-    let currentRate = rateInput.value;
-    rateDisplay.innerHTML = currentRate + 'ms';
     rateInput.addEventListener('input', e => {
         currentRate = e.target.value;
         rateDisplay.innerHTML = currentRate + 'ms';
     });
 
-    let currentAlgo = algoSelect.value;
-    algoSelect.addEventListener('change', e => {
+    algoSelect.addEventListener('select', e => {
         currentAlgo = e.target.value;
         AppSorter = new Sorter(currentAlgo);
         isRunning = false;
     });
+    
+    let currentAlgo = algoSelect.value;
+    let currentRate = rateInput.value;
+    rateDisplay.innerHTML = currentRate + 'ms';
 
+    // Main loop for sorting
     const doSortLoop = () => {
         if (isRunning) {
             AppSorter.step();

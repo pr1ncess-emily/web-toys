@@ -46,15 +46,15 @@
             <h2 class="controls__title">Settings</h2>
             <span onclick="document.querySelector('.controls__modal').style.display = 'none'" class="lg-icon">&#10060;</span>
             <div class="control__field--rate">
-                <input name="controlRate" type="number" min="10" max="1000" inputmode="numeric" pattern="[0-9]*">
+                <input name="controlRateM" value="50" type="number" min="10" max="1000" inputmode="numeric" pattern="[0-9]*">
                 <span>ms</span>
-                <label for="controlRate">Execution rate</label>
+                <label for="controlRateM">Execution rate</label>
             </div>
             <div class="control__field--algo">
-                <select name="controlAlgo">
+                <select name="controlAlgoM">
                     <option value="insert">Insertion</option>
                 </select>
-                <label for="controlAlgo">Sort Type</label>
+                <label for="controlAlgoM">Sort Type</label>
             </div>
         </div>
         <div onclick="document.querySelector('.controls__modal').style.display = 'none'" class="controls-modal__bg"></div>
@@ -63,7 +63,7 @@
     <section class="controls__fullscreen">
         <div class="control__field--rate">
             <span class="controlRateDisplay">0</span>
-            <input type="range" name="controlRate" min="10" max="1000">
+            <input type="range" name="controlRate" min="10" max="1000" value="50">
             <label for="controlRate">Execution rate</label>
         </div>
         <div class="control__field--algo">
