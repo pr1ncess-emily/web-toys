@@ -6,34 +6,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sort</title>
 
+    <!-- google font imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Ubuntu 300 500 -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">
+
     <!-- js -->
     <script src="./Renderer.js" type="module"></script>
     <script src="./Sorter.js" type="module"></script>
     <script src="./index.js" type="module"></script>
 
     <!-- css -->
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <canvas height="720" width="720" id="appCanvas"></canvas>
+    <header>
+        <h1 class="header__title">Sorter</h1>
+        <a class="header__icon" href="https://github.com/pr1ncess-emily/web-toys/blob/main/sorter/README.md" rel="noopener noreferrer" target="_blank">
+            <img src="./assets/icons/github.svg" alt="The GitHub logo" />
+        </a>
+    </header>
 
-    <div class="controls">
-        <div class="control__field--rate">
-            <span class="control__item rate-display">0</span>
-            <input type="range" name="rate" min="10" max="1000">
-            <label for="rate">Execution rate</label>
+    <main>
+        <canvas id="appCanvas"></canvas>
+    </main>
+
+    <section class="settings__button">
+        <span class="lg-icon" onclick="document.querySelector('.controls__modal').style.display = 'grid'">&#9881;&#65039;</span>
+        <span> | </span>
+        <span class="lg-icon playButton">&#9654;&#65039;</span>
+        <span class="lg-icon pauseButton">&#9208;&#65039;</span>
+        <span class="lg-icon shuffleButton">&#128256;</span>
+    </section>
+
+    <section class="controls__modal">
+        <div class="controls-modal__content">
+            <h2 class="controls__title">Settings</h2>
+            <span onclick="document.querySelector('.controls__modal').style.display = 'none'" class="lg-icon">&#10060;</span>
+            <div class="control__field--rate">
+                <input name="controlRate" type="number" min="10" max="1000" inputmode="numeric" pattern="[0-9]*">
+                <span>ms</span>
+                <label for="controlRate">Execution rate</label>
+            </div>
+            <div class="control__field--algo">
+                <select name="controlAlgo">
+                    <option value="insert">Insertion</option>
+                </select>
+                <label for="controlAlgo">Sort Type</label>
+            </div>
         </div>
-        <div class="control__field--algo">
-            <label for="algo">Algorithm</label>
-            <select name="algo">
-                <option value="insert">Insertion</option>
-            </select>
-        </div>
-        <div class="control__field--buttons">
-            <button class="start">Start</button>
-            <button class="stop">Stop</button>
-            <button class="shuffle">Shuffle</button>
-        </div>
-    </div>
+        <div onclick="document.querySelector('.controls__modal').style.display = 'none'" class="controls-modal__bg"></div>
+    </section>
+
+    <!-- <section class="controls__fullscreen">
+            <div class="control__field--rate">
+                <input name="controlRate" type="number" min="10" max="1000" inputmode="numeric" pattern="[0-9]*">
+                <span>ms</span>
+                <label for="controlRate">Execution rate</label>
+            </div>
+            <div class="control__field--algo">
+                <select name="controlAlgo">
+                    <option value="insert">Insertion</option>
+                </select>
+                <label for="controlAlgo">Sort Type</label>
+            </div>
+    </section> -->
 </body>
 </html>
